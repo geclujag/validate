@@ -1,0 +1,59 @@
+/* CSS Document */
+
+body {
+	background: #e1e1e1;
+	color:#008000;
+	font-family:Arial;
+	font-size: 1.2em;
+}
+
+#appBody {
+	margin: 0px auto;
+	width: 80%;
+	height: 80%;
+	border: 3px;
+	text-align: center;
+	background: white;
+	padding: 20px;
+	/*-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;*/
+}
+
+#searcharea {
+	font: bold 1em Arial;
+	text-transform: uppercase;
+}
+
+#searcharea p {
+	margin: 0;
+	line-height: 1em;
+	padding-bottom: 5px;
+}
+
+#searcharea input {
+	margin:10px;
+	width: 80%;
+	border-radius:9px;
+	text-align: center;
+	font: 2em Arial;
+	padding-bottom:  5px;
+	color: #808080;
+	background-color: #e1e1e1;
+}
+#searcharea button {
+	margin:10px;
+	border-radius:9px;
+	text-align: center;
+	font: 2em Arial;
+	padding-bottom: 5px;
+	background-color: #e1e1e1;
+	color: #008000;
+}
+
+#displayResult {
+	margin: 0 auto; 
+	display: none; 
+	font-size: 1.4em; 
+	font:arial;
+}

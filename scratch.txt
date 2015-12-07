@@ -1,0 +1,20 @@
+SELECT name, dob, zip, precinct FROM voters.2013aug30 WHERE name LIKE '%$userLastName, $userFirstName%' AND dob='$userDob' AND zip LIKE '%$userPostalZip%'
+
+	$voterName = mysql_query("SELECT name FROM voters.2013aug30 WHERE name LIKE '%$userLastName, $userFirstName%' AND dob='$userDob' AND zip LIKE '%$userPostalZip%'");
+	$voterName_num_rows = mysql_num_rows($voterName);
+	
+	$voterDob = date_format(mysql_query("SELECT dob $conditions"), ;
+	$voterDob_num_rows = mysql_num_rows($voterDob);
+	....
+		
+	$voterInfo = array($voterName, $voterDob, $voterPostalVillage, $voterPostalZip, $voterPrecinct );
+	
+		if ($voterName_num_rows==0 AND $voterDob_num_rows==0)
+			echo "Sorry. $userFirstName $userLastName, born $userDob and receiving mail in zip-code $userPostalZip is NOT currently registered to vote in Guam.";
+		else 
+		{
+			for ($userLastName.$userFirstName ; $x<=10; $x++)
+			{
+			  echo "The number is: $x <br>";
+			}
+		}

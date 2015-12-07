@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Can I Register Online?</title>
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/getVoter.js"></script>
+		<link href="styles/alpha.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="appBody">
+			<h2>Does this person have a valid Drivers License?</h2>
+			<p> 
+			This prototype uses a dummy database of fictional Guam Drivers License holders. None of the data shown represents any real identity as far as the developer is aware of. All fields are required.
+			</p>
+			<div class="form" id="searcharea">
+				<form name="userInfo">
+					<span>
+						<p>
+						<input placeholder="First name" type="text" name="firstName"></input>
+						</p> 
+						<p>
+						<input placeholder="Middle name" type="text" name="middleName"></input>
+						</p> 
+						<p><input placeholder="Last name" type="text" name="lastName" ></input>
+						</p>
+						<p>
+						Enter your date of birth below:</p>
+						<p><input  id="datepicker" type="date" name="dob"></input>
+						</p>
+						<p>
+						<input type="text"placeholder="Zip code on license" name="addressZip"  ></input>
+						</p>
+						<p>
+						<input type="text" placeholder="Guam drivers license number" name="idNum" ></input>
+						</p>
+					</span>
+					<span><button type="button" value="Am I registered?" onClick="get();" onkeydown="(event)";>Valid ID?</button>
+					</span>
+				</form>
+			</div><!--endof .form-->
+			<br/>
+			<div id="displayResult"></div><!--endof #displayResult-->
+			<br/>			
+		</div><!--endof #appBody-->
+	</body>
+</html>
