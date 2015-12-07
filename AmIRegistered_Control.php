@@ -1,6 +1,6 @@
 <?php
 	
-	mysql_connect("localhost", "root", "Tumaiguini", "valid");
+	mysql_connect("localhost", "dbuser", "dbuser", "valid");
 
 	$userFirstName = mysql_real_escape_string($_POST['userFirstName']);
 	$userMiddleName = mysql_real_escape_string($_POST['userMiddleName']);
