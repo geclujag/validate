@@ -1,6 +1,15 @@
 <?php
-	
-	mysql_connect("localhost", "dbuser", "dbpass", "valid");
+
+$servername = "localhost";
+$username = "dbuser";
+$password = "dbpass";
+$dbname = "valid";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 
 	$userFirstName = mysql_real_escape_string($_POST['userFirstName']);
 	$userMiddleName = mysql_real_escape_string($_POST['userMiddleName']);
@@ -15,8 +24,7 @@
 			$thisDate = $dateVar->format('m-d-Y'); //format the date
 			$krr = explode('-',$thisDate); //create array from characters of the date
 			$thisDate = implode("/",$krr); //recombine characters inserting "/
-			//pass $result to $userDobEcho
-			$userDobEcho = $thisDate;
+			$userDobEcho = $thisDate;//pass $result to $userDobEcho
 		
 	if ($userFirstName==NULL)
 		echo "* Please enter your first name.<br />";
@@ -34,7 +42,7 @@
 
 	else
 		{
-			$conditions = "FROM valid.2015_12d WHERE first_name = '$userFirstName' AND middle_name = '$userMiddleName' AND last_name = '$userLastName' AND ID_num = '$userIdNum' AND address_zip = '$userAddressZip' AND dob = '$userDobEcho' ";
+			$conditions = "FROM valid.2015_12d WHERE first_name = '$userFirstName' AND middle_name = '$userMiddleName' AND last_name = '$userLastName' AND ID_num = '$userIdNum' AND address_zip = '$userAddressZip' AND dob = '$userDob' ";
 
 			$validFirstName = mysql_query("SELECT first_name $conditions");
 			$validFirstName_num_rows = mysql_num_rows($validFirstName);
