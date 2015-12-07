@@ -1,6 +1,6 @@
 <?php
 	
-	mysql_connect("localhost", "dbuser", "dbuser", "valid");
+	mysql_connect("localhost", "dbuser", "dbpass", "valid");
 
 	$userFirstName = mysql_real_escape_string($_POST['userFirstName']);
 	$userMiddleName = mysql_real_escape_string($_POST['userMiddleName']);
@@ -35,7 +35,8 @@
 	else
 		{
 			$conditions = "FROM valid.2015_12d WHERE first_name = '$userFirstName' AND middle_name = '$userMiddleName' AND last_name = '$userLastName' AND ID_num = '$userIdNum' AND address_zip = '$userAddressZip' AND dob = '$userDobEcho' ";
-			{$validFirstName = mysql_query("SELECT first_name $conditions");
+
+			$validFirstName = mysql_query("SELECT first_name $conditions");
 			$validFirstName_num_rows = mysql_num_rows($validFirstName);
 			
 			$validMiddleName = mysql_query("SELECT middle_name $conditions");
@@ -50,26 +51,32 @@
 			$validAddressZip = mysql_query("SELECT address_zip $conditions");
 			$validAddressZip_num_rows = mysql_num_rows($validAddressZip);
 			
-			$validIdNum = mysql_query("SELECT reg_IdNum $conditions");
-			$validIdNum_num_rows = mysql_num_rows($validIdNum);}
-			
-		
+			$validIdNum = mysql_query("SELECT ID_num $conditions");
+			$validIdNum_num_rows = mysql_num_rows($validIdNum);
 
-			// if number of 'validated' rows are > 0, 
-			if ($validName_num_rows>0 AND $validDob_num_rows>0 AND $validAddressZip_num_rows>0){
 
-				$validName = mysql_result($validName, 0);
+			// if number of 'validated' rows are > 0, affirmative messege 
+			if ($validFirstName_num_rows>0 AND 
+				$validMiddleName_num_rows>0 AND 
+				$validLastName_num_rows>0 AND 
+				$validDob_num_rows>0 AND 
+				$validAddressZip_num_rows>0 AND
+				$validIdNum_num_rows>0){
+
+				$validFirstName = mysql_result($validFirstName, 0);
+				$validMiddleName = mysql_result($validMiddleName, 0);
+				$validLastName = mysql_result($validLastName, 0);
 				$validDob = mysql_result($validDob, 0);
-				$validPostalVillage = mysql_result($validPostalVillage, 0);
 				$validAddressZip = mysql_result($validAddressZip, 0);
 				$validIdNum = mysql_result($validIdNum, 0);
 
-				echo "<p>Yes. Our records show that ".$validName.", born $userDobEcho with a Zip code of ".strtoupper($validPostalVillage)." with zip-code $validAddressZip, has the ID number ".$validIdNum."</p>";
+				echo "<p>Yes. Our records show that $userFirstName $userMiddleName $userLastName, born $userDobEcho with a Guam zip code of $validAddressZip, has the ID# $validIdNum.</p>";
 			};
 
-			// if number of validated rows are == 0, 
-			if ($validName_num_rows==0){
-				echo "<p>No. The information you entered does not match our records. ".strtoupper($userFirstName)." ".strtoupper($userLastName).", born $userDobEcho and receiving mail in zip-code $userAddressZip is not currently registered to vote in Guam.</p><p style='color:red; font-size:0.6em;'>Please check that your responses are true and correct. If you would like to register; OR if you believe that our records are inaccurate and you would like to update your record, please contact our office for assistance.</p>";
+			// if number of validated rows are == 0, negative message
+
+			if ($validFirstName_num_rows==0){
+				echo "<p>No. The information you entered does not match our records. $userFirstName $userMiddleName $userLastName, born $userDobEcho and receiving mail in zip-code $userAddressZip does not have either a valid Drivers License or a valid Guam Identification card.</p><p style='color:red; font-size:0.6em;'>Please check that your responses are true and correct. If you would like to register; OR if you believe that our records are inaccurate and you would like to update your record, please contact our office for assistance.</p>";
 			};
-		}
+	};
 ?>
