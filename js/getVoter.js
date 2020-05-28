@@ -1,5 +1,5 @@
 function get() {
-	$('data_test.php', { userFirstName: userInfo.firstName, userLastName: userInfo.lastName, userDob: userInfo.dob, userAddressZip: userInfo.addressZip },
+	$('data_test.php', { userFirstName: userInfo.firstName, userLastName: userInfo.lastName, userDob: userInfo.dob, userPostalZip: userInfo.postalZip },
 		function(output) {
 			$('#displayResult').html(output).show();
 		});
@@ -9,7 +9,7 @@ function get() {
 				userFirstName: userInfo.firstName,
 				userLastName: userInfo.lastName, 
 				userDob: userInfo.dob,
-				userAddressZip: userInfo.addressZip,
+				userPostalZip: userInfo.postalZip,
 		};
 
 		console.log('Debug me...', debug_reg_data,0);

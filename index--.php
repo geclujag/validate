@@ -16,7 +16,6 @@
 // <!-- remove the link below to the html5 shiv add the /"no-js" class to the html tags at the top you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-//<script src="../../respond.min.js"></script>
 </head>
 
 <body>

@@ -25,9 +25,8 @@
 	// SHow number of rows found for each variable
 	echo "<p>";
 		echo "Counting rows...<br /><br />";
-		echo "Rows w/ '%$userLastName, $userFirstName%' = $voterName_num_rows"."<br/>";
-		echo "Rows w/ '$userDobEcho' = $voterDob_num_rows"."<br/>";
-		echo "Rows w/ '$userPostalZip' = $voterPostalZip_num_rows";
+		echo "Rows w/ ".$userLastName.", ".$userFirstName." = ".$voterName_num_rows.". <br/>";
+		echo "Rows w/ ".$userDobEcho." = ".$voterDob_num_rows.".<br/>";
+		echo "Rows w/ ".$userPostalZip." = ".$voterPostalZip_num_rows;
 	echo "</p>";
-
-
+	
