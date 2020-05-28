@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 	$userFirstName = mysql_real_escape_string($_POST['userFirstName']);
 	$userMiddleName = mysql_real_escape_string($_POST['userMiddleName']);
 	$userLastName = mysql_real_escape_string($_POST['userLastName']);
-	// $userName = ucwords(strtolower($userLastName)).", ".ucwords(strtolower($userFirstName).ucwords(strtolower($userMiddleName));
+	// $userName = ucwords(strtolower($userLastName)).", ".ucwords(strtolower($userFirstName));
 	$userDob = mysql_real_escape_string($_POST['userDob']);		
 	$userAddressZip = mysql_real_escape_string($_POST['userAddressZip']);
 	$userIdNum = mysql_real_escape_string($_POST['userIdNum']);
