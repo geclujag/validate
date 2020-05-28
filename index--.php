@@ -1,9 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
-<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
-<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="">
-<!--<![endif]-->
+<?php
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,21 +10,13 @@
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/getVoter.js"></script>
-<!-- 
-To learn more about the conditional comments around the html tags at the top of the file:
-paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+<!-- //To learn more about the conditional comments around the html tags at the top of the file:paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither. Do the following if you're using your customized build of modernizr (http://www.modernizr.com/): 
+// insert the link to your js here 
 
-Do the following if you're using your customized build of modernizr (http://www.modernizr.com/):
-* insert the link to your js here
-* remove the link below to the html5shiv
-* add the "no-js" class to the html tags at the top
-* you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build 
--->
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+// <!-- remove the link below to the html5 shiv add the /"no-js" class to the html tags at the top you can also remove the link to respond.min.js if you included the MQ Polyfill in your modernizr build -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<!-- <script src="../../respond.min.js"></script> -->
+//<script src="../../respond.min.js"></script>
 </head>
 
 <body>
@@ -38,13 +26,13 @@ Do the following if you're using your customized build of modernizr (http://www.
 		<div id="appBody">
 			<h2>Am I registered to vote in Guam elections?</h2>
 			<p> 
-			This test uses the May 2015 database of Guam voters. All fields are required.
+			Updated as of April 21, 2020. All fields are required.
 			</p>
 			<div class="form" id="searcharea">
-				<form name="userInfo">
+				<form name="userInfo" action="data_test.php" method="post">
 					<span>
 						<p>
-						<input placeholder="First name" type="text" name="firstName"></input>
+						<input type="text" name="firstName" placeholder="First name"></input>
 						</p> 
 						<p><input type="text" name="lastName" placeholder="Last name" ></input>
 						</p>
@@ -52,16 +40,13 @@ Do the following if you're using your customized build of modernizr (http://www.
 					<span>
 						<p>
 						Enter your date of birth below:</p>
-						<p><input  id="datepicker" type="date" name="dob"></input>
+						<p><input type="date" name="dob" id="datepicker" ></input>
 						</p>
 					</span>
 					<span>
 						<p>
-						<input type="text" name="postalZip" placeholder="Mailing zip code" ></input>
-						</p>
-					</span>
-					<span>
-						<p><button type="button" value="Am I registered?" onClick="get();" onkeydown="(event)";>Am I registered?</button>
+						<input type="text" name="postalZip" placeholder="Zip/Postal Code (mail)" ></input>
+						<input type="submit" value="Am I registered?"></input>
 						</p>
 					</span>
 				</form>
@@ -75,4 +60,5 @@ Do the following if you're using your customized build of modernizr (http://www.
         
 	</div><!-- endof .gridContainer clearfix -->
 </body>
+<?
 </html>

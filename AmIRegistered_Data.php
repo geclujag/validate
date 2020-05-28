@@ -1,7 +1,21 @@
 <?php
 	
-	mysql_connect("localhost", "dbuser", "dbpass");
+	//create db connection
+	$servername = "localhost";
+	$username = "dbuser";
+	$password = "dbpass";
+	$dbname = "valid";
 
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	};
+
+	echo $_POST['firstName']." ".$_POST['lastName']." ".$_POST['dob']." ".$_POST['postalZip'];
+
+	function clean_Strings() {
 	$userFirstName = mysql_real_escape_string($_POST['userFirstName']);
 	$userLastName = mysql_real_escape_string($_POST['userLastName']);
 	$userName = ucwords(strtolower($userLastName)).", ".ucwords(strtolower($userFirstName));
@@ -15,7 +29,15 @@
 			$thisDate = implode("/",$krr); //recombine characters inserting "/
 			//pass $result to $userDobEcho
 			$userDobEcho = $thisDate;
-		
+	};
+
+	clean_Strings();
+
+
+	echo $_POST['firstName']." ".$_POST['lastName']." ".$_POST['dob']." ".$_POST['postalZip'];
+	
+
+
 	if ($userFirstName==NULL)
 		echo "* Please enter your first name.<br />";
 	if ($userLastName==NULL)
@@ -28,21 +50,21 @@
 
 	else
 		{
-			$conditions = "FROM onreg.2015_05 WHERE reg_name LIKE '$userName%' AND reg_zip = '$userPostalZip' AND reg_dob = '$userDobEcho'";
+			$conditions = "FROM valid.20200521 WHERE NAME LIKE '$userName%' AND ZIP = '$userPostalZip' AND DATEOFBIRTH = '$userDobEcho' ";
 
-			$voterName = mysql_query("SELECT reg_name $conditions");
+			$voterName = mysql_query("SELECT NAME $conditions");
 			$voterName_num_rows = mysql_num_rows($voterName);
 			
-			$voterDob = mysql_query("SELECT reg_dob $conditions");
+			$voterDob = mysql_query("SELECT DATEOFBIRTH $conditions");
 			$voterDob_num_rows = mysql_num_rows($voterDob);
 			
-			$voterPostalVillage = mysql_query("SELECT reg_village $conditions");
+			$voterPostalVillage = mysql_query("SELECT VILLAGE $conditions");
 			$voterPostalVillage_num_rows = mysql_num_rows($voterPostalVillage);
 			
-			$voterPostalZip = mysql_query("SELECT reg_zip $conditions");
+			$voterPostalZip = mysql_query("SELECT ZIP $conditions");
 			$voterPostalZip_num_rows = mysql_num_rows($voterPostalZip);
 			
-			$voterPrecinct = mysql_query("SELECT reg_precinct $conditions");
+			$voterPrecinct = mysql_query("SELECT PRECINCT $conditions");
 			$voterPrecinct_num_rows = mysql_num_rows($voterPrecinct);
 		
 
