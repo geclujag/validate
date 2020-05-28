@@ -36,7 +36,7 @@
 	// echo 
 	echo "<div><p>Display variables after cleaning special characters and formatting: <br/>".$userName . " " . $userDobEcho . " " . $userPostalZip."</p></div><br/>";
 
-echo "TEST POINTER <br/>";
+	echo "TEST POINTER <br/>";
 
 	// form validation		
 	if ($userFirstName==NULL)
@@ -49,15 +49,30 @@ echo "TEST POINTER <br/>";
 		echo "* Please enter your mailing address' zip code.";
 	
 	// Perform query
-	if ($result = $mysqli -> query("SELECT * FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ")) {
-  		echo "Returned rows are: " . $result -> num_rows . "<br/>";
+	if ($result = $mysqli -> query("SELECT name, village, zipcode, precinct FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ")) {
+
+			$voterName = $mysqli -> query("SELECT name FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ");
+			
+			$voterDob = $userDobEcho;
+			
+			$voterPostalVillage = $mysqli -> query("SELECT village FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ");
+			
+			$voterPostalZip = $mysqli -> query("SELECT zipcode FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ");
+			
+			$voterPrecinct = $mysqli -> query("SELECT precinct FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ");
+
+	  		echo "<p>Yes. ".$voterName.", born " .$userDobEcho. " and receiving mail in the village of ".$voterPostalVillage." with zipcode ". $voterPostalZip. ", is currently registered to vote at precinct ".$voterPrecinct;."</p>";
+
+	    /* free result set */
+	    $result->close();
+	};
 
 echo "TEST POINTER <br/>";
 
   			//$conditions = " FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ";
 
 			$voterName = $mysqli -> query("SELECT name FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ;");
-			echo " '$voterName' ";
+			echo $voterName;
 			
 			$voterDob = $userDobEcho;
 			// $voterDob_num_rows = mysqli_num_rows($voterDob);
@@ -78,7 +93,7 @@ echo "TEST POINTER <br/>";
 			// $voterPrecinct = mysqli_result($voterPrecinct, 0);
 
 			echo "<p>Yes. ".$voterName.", born " .$userDobEcho. "and receiving mail in the village of ".$voterPostalVillage." with zipcode ". $voterPostalZip. ", is currently registered to vote at precinct $voterPrecinct.</p>";
-	};
+
 
 	// match input values to db values
 	//else {
