@@ -38,38 +38,38 @@
 
   <body>
 
-  	<div class="container">
-		<form name="userInfo" action="evaluate_input.php" method="post" class="form=-signin">
-			<div  class="text-center mb-4">
-			
-				<img class="mb-4" src="images/logo-wht-back.png" alt="" width="176" height="174">
+    <div class="container">
+    <form name="userInfo" action="data_test.php" method="post" class="form=-signin">
+      <div  class="text-center mb-4">
+      
+        <img class="mb-4" src="images/logo-wht-back.png" alt="" width="176" height="174">
 
-				<h1 class="h3 mb-3 font-weight-normal">
-					Am I registered to vote?
-				</h1>
+        <h1 class="h3 mb-3 font-weight-normal">
+          Am I registered to vote?
+        </h1>
 
-			 	<div class="form-label-group">
-				    <input type="text" name="firstName" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus></input>
-				    <label for="inputFirstName">Frst name</label>
-				</div>
-				<div class="form-label-group">
-				    <input type="text" name="lastName" id="inputLastName" class="form-control" placeholder="Last Name" required autofocus></input>
-				    <label for="inputLastName">Last name</label>
-				</div>
-				<div class="form-label-group">
-					<input  id="datepicker" type="date" name="dob" id="inputDob" class="form-control" placeholder="mm/dd/yyyy" required autofocus></input>
-				    <label for="inputDob">Birthdate</label>
-				</div>
-				<div class="form-label-group">
-					<input type="text" name="postalZip" id="inputPostalZip" class="form-control" placeholder="Postal/Zip Code" required autofocus></input>
-				    <label for="inputPostalZip">Postal/Zip Code</label>
-				</div>
+        <div class="form-label-group">
+            <input type="text" name="firstName" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus></input>
+            <label for="inputFirstName">Frst name</label>
+        </div>
+        <div class="form-label-group">
+            <input type="text" name="lastName" id="inputLastName" class="form-control" placeholder="Last Name" required autofocus></input>
+            <label for="inputLastName">Last name</label>
+        </div>
+        <div class="form-label-group">
+          <input  id="datepicker" type="date" name="dob" id="inputDob" class="form-control" placeholder="mm/dd/yyyy" required autofocus></input>
+            <label for="inputDob">Birthdate</label>
+        </div>
+        <div class="form-label-group">
+          <input type="text" name="postalZip" id="inputPostalZip" class="form-control" placeholder="Postal/Zip Code" required autofocus></input>
+            <label for="inputPostalZip">Postal/Zip Code</label>
+        </div>
 
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Am I registered?</button> 
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Am I registered?</button> 
 
-			</div>
-		</form>
-	</div>
+      </div>
+    </form>
+  </div>
 
 
     <!-- Optional JavaScript -->
@@ -78,5 +78,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-	</body>
+  </body>
 </html>
