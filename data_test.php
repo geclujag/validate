@@ -42,9 +42,9 @@
   <?php
 
 	//create db connection
-	$servername = "localhost";
+	$servername = "192.168.10.186";
 	$username = "dbuser";
-	$password = "dbpass";
+	$password = "korEANGolfMusic17";
 	$dbname = "webcache_apps";
 
 	// Create connection

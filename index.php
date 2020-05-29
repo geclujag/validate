@@ -39,10 +39,10 @@
   <body>
 
     <div class="container">
-    <form name="userInfo" action="data_test.php" method="post" class="form=-signin">
+    <form name="userInfo" action="evaluate_input.php" method="post" class="form=-signin">
       <div  class="text-center mb-4">
       
-        <img class="mb-4" src="images/logo-wht-back.png" alt="" width="176" height="174">
+        <img class="mb-4" src="images/gec_logo_cleaned.jpg" alt="" width="176" height="176">
 
         <h1 class="h3 mb-3 font-weight-normal">
           Am I registered to vote?
@@ -50,7 +50,7 @@
 
         <div class="form-label-group">
             <input type="text" name="firstName" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus></input>
-            <label for="inputFirstName">Frst name</label>
+            <label for="inputFirstName">First name</label>
         </div>
         <div class="form-label-group">
             <input type="text" name="lastName" id="inputLastName" class="form-control" placeholder="Last Name" required autofocus></input>
