@@ -42,7 +42,7 @@
   <?php
 
 	//create db connection
-	$servername = "192.168.10.186";
+	$servername = "localhost";
 	$username = "dbuser";
 	$password = "devpass";
 	$dbname = "webcache_apps";
@@ -91,21 +91,21 @@
 
 	$conditions = " FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ";
 
-	if ($result = $mysqli -> query("SELECT NAME, DATEOFBIRTH, PRECINCT FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ORDER by REGNUM")) {
+	if ($results = $mysqli -> query("SELECT NAME, DATEOFBIRTH, PRECINCT FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ORDER by REGNUM")) {
 
 	    /* fetch object array */
-	    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+	    while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	        printf ("Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"]);
-	    }
+	    };
 
-	} else {
-
-			echo "<p>No. The information you entered does not match our records. ".$userFirstName." ".$userLastName.", born $userDobEcho and receiving mail at zipcode $userPostalZip is NOT currently registered to vote in Guam. Please check that your responses are true and correct.</p>";
-
-// 	    /* free result set */
-	    $result->close();
-
+	if($results->num_rows === 0)
+	    {
+	        echo "No. $userName, born $userDobEcho and receiving mail at $userPostalZip is not registered to vote in Guam.";
+	    };
+	// 	    /* free result set */
+		    $result->close();
 	};
+
 
 	$mysqli->close();
 ?>
