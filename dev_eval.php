@@ -95,12 +95,16 @@
 
 	    /* fetch object array */
 	    while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
-	        printf ("Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"]);
+	        printf ("<img class=mb-4 src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\" width=176 height=174>
+				<h1 class=h3 mb-3 font-weight-normal> Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"])."</h1>";
 	    };
 
 	if($results->num_rows === 0)
 	    {
-	        echo "No. $userName, born $userDobEcho and receiving mail at $userPostalZip is not registered to vote in Guam.";
+	        echo "<img class=mb-4&quot src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\"; alt= width=176 height=174>
+				<h1 class=h3 mb-3 font-weight-normal>
+					Sorry. $userName, born $userDobEcho and receiving mail at $userPostalZip is not registered to vote in Guam.
+				</h1>";
 	    };
 	// 	    /* free result set */
 		    $result->close();

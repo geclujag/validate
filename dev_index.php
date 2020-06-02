@@ -35,7 +35,6 @@
 
     <title>Are you Registered?</title>
   </head>
-
   <body>
 
   	<div class="container">
