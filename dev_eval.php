@@ -87,27 +87,25 @@
 	if ($userPostalZip==NULL)
 		echo "* Please enter your mailing address' zip code.";
 
-// 	// Perform query
-
-	$conditions = " FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ";
-
+ 	// Perform query
+	//if positive match results
 	if ($results = $mysqli -> query("SELECT NAME, DATEOFBIRTH, PRECINCT FROM $dbname.voters_20200521 WHERE DATEOFBIRTH = '$userDobEcho' AND name like '$userName%' ORDER by REGNUM")) {
 
 	    /* fetch object array */
 	    while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
-	        printf ("<img class=mb-4 src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\" width=176 height=174>
-				<h1 class=h3 mb-3 font-weight-normal> Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"])."</h1>";
-	    };
-
-	if($results->num_rows === 0)
-	    {
-	        echo "<img class=mb-4&quot src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\"; alt= width=176 height=174>
-				<h1 class=h3 mb-3 font-weight-normal>
-					Sorry. $userName, born $userDobEcho and receiving mail at $userPostalZip is not registered to vote in Guam.
-				</h1>";
-	    };
-	// 	    /* free result set */
-		    $result->close();
+	        printf ("<img class=\"text-center mb-4\" src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\" width=\"176\" height=\"174\">
+				<h1 class=\"h3 mb-3 font-weight-normal\"> Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"]."</h1><p class=\"text-center\"><a href=\"https://drive.google.com/file/d/1RLpJk0ANZ4YsGTVkIdCJjFnZ3IuvLMgx/view\">So, \"Where is your precinct and polling place?\" Click here for the latest information.</a></p>");
+		    };
+		//if no positive match results
+		if($results->num_rows === 0)
+		    {
+		        echo "<img class=\"text-center mb-4\" src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\"; alt= \"\"width=\"176\" height=\"174\">
+					<h1 class=\"h3 text-center mb-3 font-weight-normal\">
+						Sorry. $userName, born $userDobEcho and receiving mail at $userPostalZip is not registered to vote in Guam.</h1>
+						<p class=\"text-center\">If you made a mistake entering your information, <a href=\"https://gec.guam.gov/validate\">simply try again.</a><br> <a href=\"https://gec.guam.gov/index.php/contact-the-gec\">Contact us</a> if you believe the above to be incorrect. <br>Or, you can also <a href=\"https://gec.guam.gov/register\">register to vote online!</a></p>";
+		    };
+		// 	    /* free result set */
+			    $result->close();
 	};
 
 

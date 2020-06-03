@@ -44,7 +44,7 @@
 				<img class="mb-4" src="images/logo-wht-back.png" alt="" width="176" height="174">
 
 				<h1 class="h3 mb-3 font-weight-normal">
-					Am I registered to vote?
+					Are you registered to vote?
 				</h1>
 
 			 	<div class="form-label-group">
@@ -56,7 +56,7 @@
 				    <label for="inputLastName">Last name</label>
 				</div>
 				<div class="form-label-group">
-					<input  id="datepicker" type="date" name="dob" id="inputDob" class="form-control" placeholder="mm/dd/yyyy" required autofocus></input>
+					<input  id="datepicker" type="date" name="dob" id="inputDob" class="form-control" placeholder="mm/dd/yyyy" value="1973-04-18" required autofocus></input>
 				    <label for="inputDob">Birthdate</label>
 				</div>
 				<div class="form-label-group">
