@@ -94,7 +94,7 @@
 	    /* fetch object array */
 	    while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
 	        printf ("<img class=\"text-center mb-4\" src=\"https:\/\/gec.guam.gov/validate/images/logo-wht-back.png\" width=\"176\" height=\"174\">
-				<h1 class=\"h3 mb-3 font-weight-normal\"> Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"]."</h1><p class=\"text-center\"><a href=\"https://drive.google.com/file/d/1RLpJk0ANZ4YsGTVkIdCJjFnZ3IuvLMgx/view\">So, \"Where is your precinct and polling place?\" Click here for the latest information.</a></p>");
+				<h1 class=\"h3 mb-3 font-weight-normal\"> Yes. %s, born %s\n is registered in precinct %s.", $row["NAME"], $row["DATEOFBIRTH"], $row["PRECINCT"]."</h1><p class=\"text-center\"><a href=\"https://drive.google.com/file/d/14IEbsheZWwDCriIrwRqE8Wm2KszPttng/view\">So, \"Where is your precinct and polling place?\" Click here for the latest information.</a></p>");
 		    };
 		//if no positive match results
 		if($results->num_rows === 0)
